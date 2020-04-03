@@ -1,21 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class script : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]private float speed = 0.2f;
+    [SerializeField]
+    public Renderer bgRend;
+    private float speed = 0f;
+
     void Start()
     {
         
     }
-
+    public void GetTheForce(Vector2 kick)
+    {
+        speed = kick.x;
+    }
     // Update is called once per frame
     void Update()
     {
-        Vector2 offset = new Vector2(Time.time * speed, 0);
-        var rend = GetComponent<Renderer>();
-        rend.material.mainTextureOffset = offset;
+        if (speed > 0)
+        {
+            speed -= 0.001f;
+        }
+        bgRend.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0f);
     }
+
+
+
 }
