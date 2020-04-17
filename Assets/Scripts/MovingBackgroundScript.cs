@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script : MonoBehaviour
+public class MovingBackgroundScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -12,7 +11,7 @@ public class script : MonoBehaviour
 
     void Start()
     {
-        
+
     }
     public void GetTheForce(Vector2 kick)
     {
@@ -27,7 +26,4 @@ public class script : MonoBehaviour
         }
         bgRend.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0f);
     }
-
-
-
 }
